@@ -1,0 +1,2 @@
+const y=document.querySelector('[data-year]');if(y){y.textContent=new Date().getFullYear();}
+document.querySelectorAll('form[data-mailto]').forEach(f=>{f.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(f);const s=[];for(const [k,v] of d.entries())s.push(`${k}: ${v}`);const body=encodeURIComponent(s.join('\n'));const subj=encodeURIComponent(f.dataset.subject||'Contato via Site');const mail=f.dataset.mailto;location.href=`mailto:${mail}?subject=${subj}&body=${body}`;});});
